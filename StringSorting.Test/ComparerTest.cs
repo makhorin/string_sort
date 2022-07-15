@@ -31,5 +31,12 @@ namespace StringSorting.Test
             lst.Sort(comparer);
             Assert.IsTrue(lst.SequenceEqual(expected));
         }
+		
+		[TestCase("1, Apple", "30432. Something something something")]
+        public void ItShouldThrowOnIncorrectInput(string x, string y)
+        {
+            var comparer = new StringComparer();
+            Assert.Throws<ArgumentException>(() => comparer.Compare(x, y));
+        }
     }
 }

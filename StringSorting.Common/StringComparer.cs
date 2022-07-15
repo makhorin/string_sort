@@ -43,8 +43,7 @@ namespace StringSorting.Common
             }
             catch
             {
-                Console.WriteLine("Looks like file has incorrect format");
-                throw;
+                throw new ArgumentException($"Looks like file has incorrect format, bad strings [{x}] [{y}]");
             }
         }
     }

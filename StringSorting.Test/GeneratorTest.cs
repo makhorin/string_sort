@@ -10,7 +10,7 @@ namespace StringSorting.Test
     [TestFixture]
     public class GeneratorTest
     {
-        [TestCase(1)]
+        [TestCase(8)]
         [TestCase(1024)]
         [TestCase(1024*1024*1024)]
         public void ItShouldGenerateFileOfSpecifiedSize(int expected)
@@ -19,7 +19,7 @@ namespace StringSorting.Test
             var generator = new Generator(1024);
             generator.Generate((ulong)expected, "test_gen");
             var bytes = File.ReadAllBytes("test_gen");
-            Assert.IsTrue(Math.Abs(expected - bytes.Length) < Math.Max(1024,expected * 0.1f));
+            Assert.IsTrue(Math.Abs(expected - bytes.Length) < expected);
             Assert.IsTrue(bytes.Length > 0);
         }
 
