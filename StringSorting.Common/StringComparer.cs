@@ -39,7 +39,14 @@ namespace StringSorting.Common
                     j++;
                 }
 
-                return byStr == 0 ? byNum : byStr;
+                if (byStr == 0)
+                {
+                    var byLen = x.Length.CompareTo(y.Length);
+                    if (byLen == 0) return byNum;
+                    return byLen;
+                }
+
+                return byStr;
             }
             catch
             {

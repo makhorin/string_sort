@@ -16,6 +16,7 @@ namespace StringSorting.Test
         [TestCase("999. A Very Long String", "0. Banana", -1)]
         [TestCase("30432. Something something something", "415. Apple", 1)]
         [TestCase("1. Apple", "30432. Something something something", -1)]
+        [TestCase("1. Apple", "1. Apples", -1)]
         public void ItShouldCompare(string x, string y, int result)
         {
             var comparer = new StringComparer();
